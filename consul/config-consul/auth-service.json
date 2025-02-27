@@ -1,0 +1,12 @@
+{
+    "service": {
+      "name": "auth-service",
+      "port": 5003,
+      "address": "192.168.5.142",
+      "check": {
+        "http": "http://192.168.5.142:5003/api/v1/Ping",
+        "interval": "10s",
+        "timeout": "2s"
+      }
+    }
+  }

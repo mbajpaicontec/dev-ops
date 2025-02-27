@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  artifactory:
+    image: releases-docker.jfrog.io/jfrog/artifactory-jcr:7.59.9
+    container_name: artifactory
+    ports:
+      - "8081:8081" # Web UI and API
+      - "8082:8082" # Docker repository
+    environment:
+      JF_SHARED_NODE_IP: "127.0.0.1"
+      JFROG_ARTIFACTORY_URL: "http://192.168.5.142:8081"
+      EXTRA_JAVA_OPTIONS: "-Dartifactory.http.enabled=true"
+    volumes:
+      - artifactory_data_1:/var/opt/jfrog/artifactory
+
+  xray:
+      image: docker.bintray.io/jfrog/xray-server:latest
+      container_name: xray
+      ports:
+        - "8007:8000" # Xray web UI
+      volumes:
+        - xray_data:/var/opt/jfrog/xray
+      environment:
+        - EXTRA_JAVA_OPTIONS=-Xms512m -Xmx2g
+        - ARTIFACTORY_URL=http://artifactory:8081
+        - XRAY_DATABASE_URL="postgres://postgres:Admin#987@192.168.5.142:5432/xray?sslmode=disable"
+      depends_on:
+        - artifactory
+      restart: unless-stopped
+
+volumes:
+  artifactory_data_1:
+    driver: local
+  xray_data:
+    driver: local

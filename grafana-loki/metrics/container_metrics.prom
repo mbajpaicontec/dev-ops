@@ -1,0 +1,36 @@
+# HELP container_cpu_percent The CPU% value from docker-stats.
+# TYPE container_cpu_percent gauge
+container_cpu_percent{container="kafka-ui"} 0.14
+container_cpu_percent{container="kafka1"} 1.22
+container_cpu_percent{container="zoo1"} 0.17
+container_cpu_percent{container="redis_standalone"} 0.85
+container_cpu_percent{container="grafana-loki-loki-1"} 0.53
+container_cpu_percent{container="consul-server"} 0.65
+container_cpu_percent{container="ecerpac-repo-ui-1"} 0.02
+container_cpu_percent{container="ecerpac-repo-sponsor-service-kafka-1"} 0.01
+container_cpu_percent{container="ecerpac-repo-sponsor-service-1"} 0.01
+container_cpu_percent{container="ecerpac-repo-applicant-service-1"} 0.01
+container_cpu_percent{container="ecerpac-repo-departure-service-1"} 0.02
+container_cpu_percent{container="ecerpac-repo-arrival-service-1"} 0.01
+container_cpu_percent{container="ecerpac-repo-auth-service-1"} 0.01
+container_cpu_percent{container="prometheus"} 0.08
+container_cpu_percent{container="blackbox-exporter"} 0.00
+
+# HELP container_mem_percent The MEM% value from docker-stats.
+# TYPE container_mem_percent gauge
+container_mem_percent{container="kafka-ui"} 2.47
+container_mem_percent{container="kafka1"} 2.49
+container_mem_percent{container="zoo1"} 0.77
+container_mem_percent{container="redis_standalone"} 0.06
+container_mem_percent{container="grafana-loki-loki-1"} 0.62
+container_mem_percent{container="consul-server"} 0.22
+container_mem_percent{container="ecerpac-repo-ui-1"} 0.46
+container_mem_percent{container="ecerpac-repo-sponsor-service-kafka-1"} 0.26
+container_mem_percent{container="ecerpac-repo-sponsor-service-1"} 1.52
+container_mem_percent{container="ecerpac-repo-applicant-service-1"} 1.07
+container_mem_percent{container="ecerpac-repo-departure-service-1"} 0.43
+container_mem_percent{container="ecerpac-repo-arrival-service-1"} 0.64
+container_mem_percent{container="ecerpac-repo-auth-service-1"} 1.27
+container_mem_percent{container="prometheus"} 0.21
+container_mem_percent{container="blackbox-exporter"} 0.14
+

@@ -1,0 +1,1019 @@
+{
+    "Routes": [
+        {
+        "DownstreamPathTemplate": "/api/v1/applicant/Applicant",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "192.168.5.142",
+                "Port": 8084
+            }
+        ],
+        "RateLimitOptions": {
+          "EnableRateLimiting": true,
+          "ClientWhitelist": [],
+          "QuotaExceededMessage": "You have exceeded the request limit.",
+          "HttpStatusCode": 429,
+          "Period": "1m",
+          "PeriodTimespan": 60,
+          "Limit": 5
+        },
+        "UpstreamPathTemplate": "/Applicant",
+        "UpstreamHttpMethod": [ "Get", "Post" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/Applicant/{data}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/Applicant/UserData/{data}",
+            "UpstreamHttpMethod": [ "Get"],
+            "AddQueriesToRequest": {
+                "sponsorId": "{sponsorId?}",
+                "userId": "{userId?}",
+                "pageSize": "{pageSize?}",
+                "pageIndex": "{pageIndex?}",
+                "startDateStr": "{startDateStr?}",
+                "endDateStr": "{endDateStr?}"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplicationStatus/applicant-status-count",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/Applicant/StatusCount",
+            "UpstreamHttpMethod": [ "Get"]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplicationStatus?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplicantStatus",
+            "UpstreamHttpMethod": [ "Put"]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplicationStatus/GetApplicantStatusCountBySponsorID?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplicationStatus/GetApplicantStatusCountBySponsorID",
+            "UpstreamHttpMethod": [ "Get"],
+            "AddQueriesToRequest": {
+               "sponsorId": "{sponsorId?}"
+            }   
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplicationStatus/GetApplicanteCerpacStatusCount",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplicationStatus/GetApplicanteCerpacStatusCount",
+            "UpstreamHttpMethod": [ "Get"]  
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplicationStatus/status-list",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplicationStatus/status-list",
+            "UpstreamHttpMethod": [ "Get"]  
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplicationStatus/journey-status/{application_id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplicationStatus/journey-status/{application_id}",
+            "UpstreamHttpMethod": [ "Get"]  
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplyeCerpac/GetPrimaryDetails?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplyeCerpac/GetPrimaryDetails/",
+            "UpstreamHttpMethod": [ "Get"],
+            "AddQueriesToRequest": {
+                "applicantId": "{applicantId?}",
+                "userId": "{userId?}"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplyeCerpac/CreateOrUpdatePrimaryDetails",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplyeCerpac/CreateOrUpdatePrimaryDetails",
+            "UpstreamHttpMethod": [ "Post"]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplyeCerpac/GetRegularization?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplyeCerpac/GetRegularization/",
+            "UpstreamHttpMethod": [ "Get"],
+            "AddQueriesToRequest": {
+                "applicantId": "{applicantId?}"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplyeCerpac/CreateOrUpdateRegularization",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplyeCerpac/CreateOrUpdateRegularization",
+            "UpstreamHttpMethod": [ "Post"]
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplyeCerpac/GetDocuments?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "UpstreamPathTemplate": "/ApplyeCerpac/GetDocuments",
+            "UpstreamHttpMethod": [ "Get"],
+            "AddQueriesToRequest": {
+                "applicantId": "{applicantId?}"
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/ApplyeCerpac/UploadOrUpdateDocuments",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 5001
+              }
+            ],
+            "UpstreamPathTemplate": "/ApplyeCerpac/UploadOrUpdateDocuments",
+            "UpstreamHttpMethod": [ "Post" ]
+        },
+        {
+          "DownstreamPathTemplate": "/api/v1/applicant/MasterData/GetAllMasterData",
+          "DownstreamScheme": "http",
+          "DownstreamHostAndPorts": [
+            {
+              "Host": "192.168.5.142",
+              "Port": 5001
+            }
+          ],
+          "UpstreamPathTemplate": "/MasterData/GetAllMasterData",
+          "UpstreamHttpMethod": [ "Get" ]
+        },
+        {
+          "DownstreamPathTemplate": "/api/v1/applicant/Menubar",
+          "DownstreamScheme": "http",
+          "DownstreamHostAndPorts": [
+            {
+              "Host": "192.168.5.142",
+              "Port": 5001
+            }
+          ],
+          "UpstreamPathTemplate": "/Menubar",
+          "UpstreamHttpMethod": [ "Post" , "Get" , "Put" , "Delete" ]
+        },
+        {
+          "DownstreamPathTemplate": "/api/v1/applicant/QRCode/Applicant?",
+          "UpstreamPathTemplate": "/QRcode/Applicant",
+          "DownstreamScheme": "http",
+          "DownstreamHostAndPorts": [
+            { "Host": "192.168.5.142", "Port": 8084 }
+          ],
+          "UpstreamHttpMethod": [ "GET" ],
+          "AddQueriesToRequest": {
+            "applicantIdt": "{applicantId?}",
+            "userId": "{userId?}"
+          }
+        },
+        {
+          "DownstreamPathTemplate": "/api/v1/applicant/QRCode/Dependent?",
+          "UpstreamPathTemplate": "/QRCode/Dependent",
+          "DownstreamScheme": "http",
+          "DownstreamHostAndPorts": [
+            { "Host": "192.168.5.142", "Port": 8084 }
+          ],
+          "UpstreamHttpMethod": [ "GET" ],
+          "AddQueriesToRequest": {
+            "applicantIdt": "{applicantId?}",
+            "dependentId": "{dependentId?}"
+          }
+        },
+        {
+          "DownstreamPathTemplate": "/api/v1/applicant/ReneweCerpac/{data}",
+          "UpstreamPathTemplate": "/ReneweCerpac/{data}",
+          "DownstreamScheme": "http",
+          "DownstreamHostAndPorts": [
+            { "Host": "192.168.5.142", "Port": 8084 }
+          ],
+          "UpstreamHttpMethod": [ "GET", "Delete" , "Post" ]
+        
+        },
+        {
+          "DownstreamPathTemplate": "/WeatherForecast",
+          "UpstreamPathTemplate": "/WeatherForecast",
+          "DownstreamScheme": "http",
+          "DownstreamHostAndPorts": [
+            { "Host": "192.168.5.142", "Port": 8084 }
+          ],
+          "UpstreamHttpMethod": [ "GET" ]
+        
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/refresh-token",
+            "UpstreamPathTemplate": "/AuthUser/refresh-token",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/loginuserwithtoken",
+            "UpstreamPathTemplate": "/Authuser/loginuserwithtoken",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/{everything}",
+            "UpstreamPathTemplate": "/Authuser/User/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "IsUserProperLogout": "{IsUserProperLogout?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/logout-from-other-device",
+            "UpstreamPathTemplate": "/Authuser/logout-from-other-device",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/GetUserDetails",
+            "UpstreamPathTemplate": "/Authuser/Users/Details",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "email": "{email?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/UpdateUserPassword",
+            "UpstreamPathTemplate": "/AuthUser/UpdateUserPassword",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/IsUserLoggedIn?",
+            "UpstreamPathTemplate": "/Authuser/IsUserLoggedIn",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "userId": "{userId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/GetUserProfile",
+            "UpstreamPathTemplate": "/Authuser/GetUserProfile",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "userId": "{userId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/VerifyOTP",
+            "UpstreamPathTemplate": "/AuthUser/VerifyOTP",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "otp": "{otp?}",
+              "email": "{email?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/AuthUser/GenerateOTP",
+            "UpstreamPathTemplate": "/Authuser/generateotp",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "email": "{email?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/City",
+            "UpstreamPathTemplate": "/City",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "stateId": "{stateId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Country",
+            "UpstreamPathTemplate": "/Country",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Designation",
+            "UpstreamPathTemplate": "/Designation",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/District",
+            "UpstreamPathTemplate": "/District",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "stateId": "{stateId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Gender",
+            "UpstreamPathTemplate": "/Gender",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/LGA",
+            "UpstreamPathTemplate": "/LGA",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "stateId": "{stateId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/LocationDetails/LocationDetails",
+            "UpstreamPathTemplate": "/LocationDetails/LocationDetails",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "cityId": "{cityId?}",
+              "stateId": "{stateId?}",
+              "countryId": "{countryId?}",
+              "lgaId": "{lgaId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Role",
+            "UpstreamPathTemplate": "/Role",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Signup",
+            "UpstreamPathTemplate": "/Signup",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Signup/VerifySignupEmail",
+            "UpstreamPathTemplate": "/Signup/VerifySignupEmail",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "email": "{email?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/State",
+            "UpstreamPathTemplate": "/State",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "countryId": "{countryId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/Title",
+            "UpstreamPathTemplate": "/Title",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/User/InsertUserDetail",
+            "UpstreamPathTemplate": "/User/InsertUserDetail",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/User/UserProfileUpdate",
+            "UpstreamPathTemplate": "/User/UserProfileUpdate",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "PUT" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/User/country-list",
+            "UpstreamPathTemplate": "/User/country-list",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              { "Host": "192.168.5.142", "Port": 8084 }
+            ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/auth/User/DeleteProfileImage?",
+            "UpstreamPathTemplate": "/User/DeleteProfileImage",
+            "UpstreamHttpMethod": [ "DELETE" ],
+            "AddQueriesToRequest": {
+              "userId": "{userId?}"
+            },
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 5003
+              }
+            ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/CompanyQuota/{Id}",
+            "UpstreamPathTemplate": "/CompanyQuota/{Id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+      
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/CompanyQuota/organizationId?",
+            "UpstreamPathTemplate": "/CompanyQuota/organizationId",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "organizationId": "{organizationId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/CompanyQuota/details/{Id}",
+            "UpstreamPathTemplate": "/CompanyQuota/details/{Id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Dashboard/SponserIdVerification?",
+            "UpstreamPathTemplate": "/Dashboard/SponserIdVerification",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "sponsorId": "{sponsorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Dashboard/VerificationEmail?",
+            "UpstreamPathTemplate": "/Dashboard/VerificationEmail",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "email": "{email?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Dashboard/GetDashboadChartCount?",
+            "UpstreamPathTemplate": "/Dashboard/GetDashboadChartCount",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "sponsorId": "{sponsorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/DirectorDesignationMaster",
+            "UpstreamPathTemplate": "/DirectorDesignationMaster",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/DocumentTypeMaster?",
+            "UpstreamPathTemplate": "/DocumentTypeMaster",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "OrganizationTypeId": "{OrganizationTypeId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/InviteApplicant/sponsorId?",
+            "UpstreamPathTemplate": "/InviteApplicant/sponsorId",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "sponsorId": "{sponsorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/InviteApplicant/designation_mia?",
+            "UpstreamPathTemplate": "/InviteApplicant/designation_mia",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "miaNumber": "{miaNumber?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/InviteApplicant/mia_by_id?",
+            "UpstreamPathTemplate": "/InviteApplicant/mia_by_id",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "organizationId": "{organizationId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/InviteApplicant/{id}",
+            "UpstreamPathTemplate": "/InviteApplicant/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/InviteApplicant/GetApplicantDetail?",
+            "UpstreamPathTemplate": "/InviteApplicant/GetApplicantDetail",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "email": "{email?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/MOI/GetSponsorList?",
+            "UpstreamPathTemplate": "/MOI/GetSponsorList",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "page": "{page?}",
+              "pageSize": "{pageSize?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/MOI/GetSponsorPayment?",
+            "UpstreamPathTemplate": "/MOI/GetSponsorPayment",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "sponsorId": "{sponsorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/MOI/GetDashboardResultCount",
+            "UpstreamPathTemplate": "/MOI/GetDashboardResultCount",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Organization",
+            "UpstreamPathTemplate": "/Organization",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Quota/GetQuotaCount?",
+            "UpstreamPathTemplate": "/Quota/GetQuotaCount",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "sponsorId": "{sponsorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Sponsor/{UserId}/{email}/sponsor",
+            "UpstreamPathTemplate": "/Sponsor/User/{UserId}/email/{email}/sponsor",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Sponsor/SponsorDetails?",
+            "UpstreamPathTemplate": "/Sponsor/SponsorDetails",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "sponsorId": "{sponsorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/SponsorDirector/GetAll?",
+            "UpstreamPathTemplate": "/SponsorDirector/GetAll",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "organizationId": "{organizationId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/SponsorDirector/GetById?",
+            "UpstreamPathTemplate": "/SponsorDirector/GetById",
+            "UpstreamHttpMethod": [ "GET" ],
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+              ],
+            "AddQueriesToRequest": {
+              "directorId": "{directorId?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Sponsorship",
+            "UpstreamPathTemplate": "/Sponsorship",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                { "Host": "192.168.5.142", "Port": 8084 }
+             ],
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/CompanyQuota",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Get/sponsor/CompanyQuota",
+            "UpstreamHttpMethod": [ "POST" ],
+            "UpstreamHeaderTransformations": {
+              "accept": "*/*",
+              "Content-Type": "multipart/form-data"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/InviteApplicant/InviteApplicant",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/InviteApplicant/InviteApplicant",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Kafka/ProduceMessage?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Kafka/ProduceMessage",
+            "UpstreamHttpMethod": [ "POST" ],
+            "AddQueriesToRequest": {
+              "topic": "{topic?}",
+              "toEmail": "{toEmail?}",
+              "subject": "{subject?}",
+              "body": "{body?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Kafka/create?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Kafka/create",
+            "UpstreamHttpMethod": [ "POST" ],
+            "AddQueriesToRequest": {
+              "topicName": "{topicName?}",
+              "numPartitions": "{numPartitions?}",
+              "replicationFactor": "{replicationFactor?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/MOI/UpdateStatusAddAuditTrailLog",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/MOI/UpdateStatusAddAuditTrailLog",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Sponsor/GenrateSponserId",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Sponsor/GenrateSponserId",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Sponsor/UpdateSponsor",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Sponsor/UpdateSponsor",
+            "UpstreamHttpMethod": [ "PUT" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/Sponsor/PersonalDetail",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Sponsor/PersonalDetail",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/v1/sponsor/SponsorDirector/AddDirector",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/SponsorDirector/AddDirector",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/Departure/GetAllArrivalAndDepartureFiledAndApplicantList",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Departure/GetAllArrivalAndDepartureFiledAndApplicantList",
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/Departure/GetAllApplicantsDetailsInfoById?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Departure/GetAllApplicantsDetailsInfoById",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "Id": "{Id?}"
+            }
+          },
+          {
+            "DownstreamPathTemplate": "/api/Departure/ApplicantApprovalOrReject",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Departure/ApplicantApprovalOrReject",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/Departure/AddorUpdateDepartureModeCommand",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Departure/AddorUpdateDepartureModeCommand",
+            "UpstreamHttpMethod": [ "POST" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/Departure/GetAllDepartureApplicantsList",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Departure/GetAllDepartureApplicantsList",
+            "UpstreamHttpMethod": [ "GET" ]
+          },
+          {
+            "DownstreamPathTemplate": "/api/Departure/GetUserProfileById?",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+              {
+                "Host": "192.168.5.142",
+                "Port": 8084
+              }
+            ],
+            "UpstreamPathTemplate": "/Departure/GetUserProfileById",
+            "UpstreamHttpMethod": [ "GET" ],
+            "AddQueriesToRequest": {
+              "Id": "{Id?}"
+            }
+          }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://0.0.0.0:80",
+        "RateLimitOptions": {
+        // "DisableRateLimitHeaders": false,
+          "QuotaExceededMessage": "Quota exceeded. Please try again later.",
+          "HttpStatusCode": 418, // I'm a teapot
+          "ClientWhitelist": [],
+          "EnableRateLimiting": true,
+          "Period": "1m",
+          "PeriodTimespan": 300,
+          "Limit": 10
+        }
+    }
+}

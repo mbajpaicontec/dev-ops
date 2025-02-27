@@ -1,0 +1,24 @@
+version: '3.8'
+x-logging: &default-logging
+  driver: loki
+  options:
+    loki-url: 'http://localhost:3100/api/prom/push'
+ 
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8084:80"
+    volumes:
+      - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf:ro 
+      - ./nginx-conf/conf.d:/etc/nginx/conf.d # Mount the custom NGINX configuration
+      - ./ssl/server.crt:/etc/nginx/ssl/server.crt
+      - ./ssl/server.key:/etc/nginx/ssl/server.key
+    networks:
+      - app_network
+    logging: *default-logging   
+
+networks:
+   app_network:
+        driver: bridge

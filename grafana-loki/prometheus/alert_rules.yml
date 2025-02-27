@@ -1,0 +1,90 @@
+groups:
+  - name: http-probe-alerts(Applicant-service)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.142:5001/api/v1/applicant/Ping"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Applicant-Service"
+          description: "The HTTP status code for the instance Applicant-service is not 200. Current status code: {{ $value }}"
+  
+  - name: http-probe-alerts(Auth-service)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.142:5003/api/v1/auth/Ping"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Auth-Service"
+          description: "The HTTP status code for the instance Auth-service is not 200. Current status code: {{ $value }}"
+
+  - name: http-probe-alerts(sponsor-service)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.142:5005/api/v1/sponsor/Ping"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Sponsor-Service"
+          description: "The HTTP status code for the instance Sponsor-service is not 200. Current status code: {{ $value }}"
+
+  - name: http-probe-alerts(Container-stats-service)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.142:8142/metrics"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Container-stats-service"
+          description: "The HTTP status code for the instance Container-stats-service is not 200. Current status code: {{ $value }}" 
+
+          # ############################################################# QA ##########################################
+
+  - name: http-probe-alerts(Applicant-service-QA)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.145:5001/api/v1/applicant/Ping"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Applicant-QA"
+          description: "The HTTP status code for the instance Applicant-service is not 200. Current status code: {{ $value }}"
+  
+  - name: http-probe-alerts(Auth-service-QA)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.145:5003/api/v1/auth/Ping"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Auth-Service-QA"
+          description: "The HTTP status code for the instance Auth-service is not 200. Current status code: {{ $value }}"
+
+  - name: http-probe-alerts(sponsor-service-QA)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.145:5005/api/v1/sponsor/Ping"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Sponsor-Service-QA"
+          description: "The HTTP status code for the instance Sponsor-service is not 200. Current status code: {{ $value }}"
+
+  - name: http-probe-alerts(Container-stats-service-QA)
+    rules:
+      - alert: HTTPStatusCodeMismatch
+        expr: probe_http_status_code{instance="http://192.168.5.145:8142/metrics"} != 200
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "HTTP Status Code Alert for Container-stats-service-QA"
+          description: "The HTTP status code for the instance Container-stats-service is not 200. Current status code: {{ $value }}"         

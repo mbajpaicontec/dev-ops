@@ -1,0 +1,12 @@
+{
+    "service": {
+      "name": "arrival-service",
+      "port": 5002,
+      "address": "192.168.5.142",
+      "check": {
+        "http": "http://192.168.5.142:5002/swagger/index.html",
+        "interval": "10s",
+        "timeout": "2s"
+      }
+    }
+  }

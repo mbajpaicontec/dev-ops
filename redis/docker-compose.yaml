@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis_standalone
+    ports:
+      - "6379:6379"  # Expose Redis port to host
+    volumes:
+      - ./redis_data:/data  # Persist Redis data in a named volume
+    networks:
+      - redis_network
+    restart: always  # Restart the container if it crashes
+
+
+networks:
+  redis_network:  # Custom network for the Redis container
+    driver: bridge  # Bridge network driver (default)

@@ -1,0 +1,12 @@
+{
+    "service": {
+      "name": "UI-service",
+      "port": 3002,
+      "address": "192.168.5.142",
+      "check": {
+        "http": "http://192.168.5.142:3002",
+        "interval": "10s",
+        "timeout": "2s"
+      }
+    }
+  }

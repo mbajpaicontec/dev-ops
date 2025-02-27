@@ -1,0 +1,12 @@
+{
+    "service": {
+      "name": "sponser-service",
+      "port": 5005,
+      "address": "192.168.5.142",
+      "check": {
+        "http": "http://192.168.5.142:5005/api/v1/Ping",
+        "interval": "10s",
+        "timeout": "2s"
+      }
+    }
+  }

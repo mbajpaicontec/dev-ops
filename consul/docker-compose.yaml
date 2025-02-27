@@ -1,0 +1,19 @@
+version: '3.3'
+networks:
+   consul-network:
+    external: true
+services:
+  consul:
+    image: consul:1.15.4
+    container_name: consul-server
+    ports:
+      - "8500:8500" # Consul UI and API
+      - "53:8600/udp" # DNS Interface
+    # environment:
+    #   CONSUL_BIND_INTERFACE: eth0
+    command: "agent -server -ui -bootstrap-expect=1 -client=0.0.0.0 "
+    networks:
+            - consul-network
+    volumes:
+    - ./config-consul:/consul/config
+     #- ./consul-data:/consul/data

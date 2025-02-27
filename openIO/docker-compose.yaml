@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    ports:
+      - "9008:9000"       # MinIO Console
+      - "9001:9001"       # Admin Console
+    volumes:
+      - ./data:/data      # Local data directory
+      - ./config:/root/.minio # Configurations
+    environment:
+      MINIO_ROOT_USER: "demo:demo"   # Access Key
+      MINIO_ROOT_PASSWORD: "DEMO_PASS" # Secret Key
+    command: server /data --console-address ":9001"

@@ -1,0 +1,240 @@
+{
+  "Routes": [
+    {
+        "DownstreamPathTemplate": "/api/v1/applicant/Applicant",
+        "DownstreamScheme": "http",
+        "UpstreamHttpMethod": [ "Get"],
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "192.168.5.142",
+                "Port": 8084
+            }
+
+        ],
+        "RateLimitOptions": {
+          "EnableRateLimiting": true,
+          "ClientWhitelist": [],
+          "QuotaExceededMessage": "You have exceeded the request limit.",
+          "HttpStatusCode": 429,
+          "ClientIdHeader": "Client-Id",
+          "Period": "1m",
+          "PeriodTimespan": 60,
+          "Limit": 5
+        },
+        "UpstreamPathTemplate": "/Applicant"
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/applicant/{data}",
+            "DownstreamScheme": "http",
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete"],
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "RateLimitOptions": {
+              "EnableRateLimiting": true,
+              "ClientWhitelist": [],
+              "QuotaExceededMessage": "You have exceeded the request limit.",
+              "HttpStatusCode": 429,
+              "Period": "1m",
+              "PeriodTimespan": 60,
+              "ClientIdHeader": "Client-Id",
+              "Limit": 5
+            },
+            "UpstreamPathTemplate": "/Applicant/{data}"
+        },
+        {
+            "DownstreamPathTemplate": "/api/v1/WeatherForecast",
+            "DownstreamScheme": "http",
+            "UpstreamHttpMethod": [ "Get"],
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "192.168.5.142",
+                    "Port": 8084
+                }
+            ],
+            "RateLimitOptions": {
+              "EnableRateLimiting": true,
+              "ClientWhitelist": [],
+              "QuotaExceededMessage": "You have exceeded the request limit.",
+              "HttpStatusCode": 429,
+              "ClientIdHeader": "Client-Id",
+              "Period": "1m",
+              "PeriodTimespan": 60,
+              "Limit": 5
+            },
+            "UpstreamPathTemplate": "/WeatherForecast"
+            },
+            {
+                "DownstreamPathTemplate": "/api/v1/WeatherForecast/{data}",
+                "DownstreamScheme": "http",
+                "UpstreamHttpMethod": [ "Get", "Post" , "Delete" , "Put"],
+                "DownstreamHostAndPorts": [
+                    {
+                        "Host": "192.168.5.142",
+                        "Port": 8084
+                    }
+                ],
+                "RateLimitOptions": {
+                  "EnableRateLimiting": true,
+                  "ClientWhitelist": [],
+                  "QuotaExceededMessage": "You have exceeded the request limit.",
+                  "HttpStatusCode": 429,
+                  "ClientIdHeader": "Client-Id",
+                  "Period": "1m",
+                  "PeriodTimespan": 60,
+                  "Limit": 5
+                },
+                "UpstreamPathTemplate": "/WeatherForecast/{data}"
+            },
+            {
+                "DownstreamPathTemplate": "/api/v1/auth",
+                "DownstreamScheme": "http",
+                "UpstreamHttpMethod": [ "Get"],
+                "DownstreamHostAndPorts": [
+                    {
+                        "Host": "192.168.5.142",
+                        "Port": 8084
+                    }
+                ],
+                "RateLimitOptions": {
+                  "EnableRateLimiting": true,
+                  "ClientWhitelist": [],
+                  "QuotaExceededMessage": "You have exceeded the request limit.",
+                  "HttpStatusCode": 429,
+                  "ClientIdHeader": "Client-Id",
+                  "Period": "1m",
+                  "PeriodTimespan": 60,
+                  "Limit": 5
+                },
+                "UpstreamPathTemplate": "/Auth"
+                },
+                {
+                    "DownstreamPathTemplate": "/api/v1/auth/{data}",
+                    "DownstreamScheme": "http",
+                    "UpstreamHttpMethod": [ "Get", "Delete", "Post" , "Put"],
+                    "DownstreamHostAndPorts": [
+                        {
+                            "Host": "192.168.5.142",
+                            "Port": 8084
+                        }
+                    ],
+                    "RateLimitOptions": {
+                      "EnableRateLimiting": true,
+                      "ClientWhitelist": [],
+                      "ClientIdHeader": "Client-Id",
+                      "QuotaExceededMessage": "You have exceeded the request limit.",
+                      "HttpStatusCode": 429,
+                      "Period": "1m",
+                      "PeriodTimespan": 60,
+                      "Limit": 5
+                    },
+                    "UpstreamPathTemplate": "/Auth/{data}"
+                },
+                {
+                    "DownstreamPathTemplate": "/api/Departure/{data}",
+                    "DownstreamScheme": "http",
+                    "UpstreamHttpMethod": [ "Get" , "Delete" , "Post" , "Put"],
+                    "DownstreamHostAndPorts": [
+                        {
+                            "Host": "192.168.5.142",
+                            "Port": 8084
+                        }
+                    ],
+                    "RateLimitOptions": {
+                      "EnableRateLimiting": true,
+                      "ClientWhitelist": [],
+                      "ClientIdHeader": "Client-Id",
+                      "QuotaExceededMessage": "You have exceeded the request limit.",
+                      "HttpStatusCode": 429,
+                      "Period": "1m",
+                      "PeriodTimespan": 60,
+                      "Limit": 5
+                    },
+                    "UpstreamPathTemplate": "/Departure/{data}"
+                },
+                {
+                    "DownstreamPathTemplate": "/api/v1/sponsor/{data}",
+                    "DownstreamScheme": "http",
+                    "UpstreamHttpMethod": [ "Get" , "Delete" , "Post" , "Put"],
+                    "DownstreamHostAndPorts": [
+                        {
+                            "Host": "192.168.5.142",
+                            "Port": 8084
+                        }
+                    ],
+                    "RateLimitOptions": {
+                      "EnableRateLimiting": true,
+                      "ClientWhitelist": [],
+                      "ClientIdHeader": "Client-Id",
+                      "QuotaExceededMessage": "You have exceeded the request limit.",
+                      "HttpStatusCode": 429,
+                      "Period": "1m",
+                      "PeriodTimespan": 60,
+                      "Limit": 5
+                    },
+                    "UpstreamPathTemplate": "/Sponsor/{data}"
+                },
+                {
+                    "DownstreamPathTemplate": "/{data}",
+                    "DownstreamScheme": "http",
+                    "UpstreamHttpMethod": [ "Get" , "Delete" , "Post" , "Put"],
+                    "DownstreamHostAndPorts": [
+                        {
+                            "Host": "192.168.5.142",
+                            "Port": 9008
+                        }
+                    ],
+                    "RateLimitOptions": {
+                      "EnableRateLimiting": true,
+                      "ClientWhitelist": [],
+                      "ClientIdHeader": "Client-Id",
+                      "QuotaExceededMessage": "You have exceeded the request limit.",
+                      "HttpStatusCode": 429,
+                      "Period": "1m",
+                      "PeriodTimespan": 60,
+                      "Limit": 5
+                    },
+                    "UpstreamPathTemplate": "/GetDetails/Sponsor/docs/{data}"
+                },
+                {
+                    "DownstreamPathTemplate": "/api/v1/notes/{data}",
+                    "DownstreamScheme": "http",
+                    "UpstreamHttpMethod": [ "Get" , "Delete" , "Post" , "Put"],
+                    "DownstreamHostAndPorts": [
+                        {
+                            "Host": "192.168.5.142",
+                            "Port": 8084
+                        }
+                    ],
+                    "RateLimitOptions": {
+                      "EnableRateLimiting": true,
+                      "ClientWhitelist": [],
+                      "ClientIdHeader": "Client-Id",
+                      "QuotaExceededMessage": "You have exceeded the request limit.",
+                      "HttpStatusCode": 429,
+                      "Period": "1m",
+                      "PeriodTimespan": 60,
+                      "Limit": 5
+                    },
+                    "UpstreamPathTemplate": "/notes/{data}"
+                }
+
+
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://0.0.0.0:80",
+        "RateLimitOptions": {
+        // "DisableRateLimitHeaders": false,
+          "QuotaExceededMessage": "Quota exceeded. Please try again later.",
+          "HttpStatusCode": 418, // I'm a teapot
+          "ClientWhitelist": [],
+          "EnableRateLimiting": true,
+          "Period": "1m",
+          "PeriodTimespan": 300,
+          "Limit": 10
+        }
+    }
+}
